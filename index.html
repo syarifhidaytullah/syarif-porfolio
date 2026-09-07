@@ -66,17 +66,16 @@
           <span class="card-dots"><i></i><i></i><i></i></span>
           <span class="card-title">hr_attrition_analysis.sql</span>
         </div>
-        <pre class="code"><code><span class="c">-- Analisis Lembur vs Rasio Attrition per Departemen</span>
+        <pre class="code"><code><span class="c">-- Analisis Lembur vs Turnover Karyawan</span>
 <span class="k">SELECT</span> 
   d.department_name,
   e.overtime,
-  <span class="k">COUNT</span>(e.employee_id) <span class="k">AS</span> total_karyawan,
-  <span class="k">ROUND</span>(<span class="k">AVG</span>(e.monthly_income), <span class="n">2</span>) <span class="k">AS</span> avg_gaji,
-  <span class="k">ROUND</span>(<span class="k">SUM</span>(<span class="k">CASE WHEN</span> e.attrition = <span class="s">'Yes'</span> <span class="k">THEN</span> <span class="n">1</span> <span class="k">ELSE</span> <span class="n">0</span> <span class="k">END</span>) * <span class="n">100.0</span> / <span class="k">COUNT</span>(*), <span class="n">1</span>) <span class="k">AS</span> attrition_rate
+  <span class="k">COUNT</span>(*) <span class="k">AS</span> total_karyawan,
+  <span class="k">ROUND</span>(<span class="k">AVG</span>(e.monthly_income), <span class="n">0</span>) <span class="k">AS</span> avg_gaji
 <span class="k">FROM</span> employees e
-<span class="k">JOIN</span> departments d <span class="k">ON</span> e.department_id = d.department_id
-<span class="k">GROUP BY</span> d.department_name, e.overtime
-<span class="k">ORDER BY</span> attrition_rate <span class="k">DESC</span>;
+<span class="k">JOIN</span> departments d 
+  <span class="k">ON</span> e.department_id = d.department_id
+<span class="k">GROUP BY</span> d.department_name, e.overtime;
 <span class="c">-- &rarr; OverTime attrition 30.5% vs non-OT 10.4%</span></code></pre>
         <div class="hero-stats">
           <div class="h-stat"><span class="h-stat-label">OverTime Attrition</span><span class="h-stat-val down">30.5%</span></div>
@@ -84,7 +83,7 @@
         </div>
       </div>
       <div class="hero-photo">
-        <img src="assets/portfolio2_excel_otomatis.png" alt="Excel 365 Automation Dashboard" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Foto profil Syarif Hidayatullah" loading="lazy">
         <div class="photo-badge">Syarif Hidayatullah — Junior Data Analyst</div>
       </div>
     </div>
