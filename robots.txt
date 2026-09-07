@@ -1,0 +1,5 @@
+# GitHub Pages robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://www.syarifhidayatullah.web.id/sitemap.xml
