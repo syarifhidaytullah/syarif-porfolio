@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Excel 365 Automation — Laporan Dinamis & Pembersihan Data | Syarif Hidayatullah</title>
+<meta name="description" content="Mengubah 500+ baris data transaksi berantakan menjadi dashboard keuangan otomatis dengan formula Excel 365 modern.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="../index.html"><span class="logo-mark">S</span> Syarif<span class="logo-dot">.</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="../index.html#home">Home</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#projects" class="active">Projects</a>
+      <a href="../index.html#skills">Skills</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="../assets/CV-Syarif-Data-Analyst.pdf" download class="btn btn-sm btn-ghost">Unduh CV</a>
+      <a href="../index.html#contact" class="btn btn-sm btn-primary">Hubungi Saya</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="case-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> &rsaquo; <a href="../index.html#projects">Projects</a> &rsaquo; Excel 365 Automation</div>
+    <h1>Excel 365 Automation — Laporan Keuangan Dinamis</h1>
+    <p style="color:var(--muted);max-width:680px">Pembersihan data transaksi tidak terstruktur dan otomasi pelaporan keuangan dengan formula modern Excel 365, berorientasi audit lineage yang transparan.</p>
+    <div class="case-meta">
+      <span style="background:#10b981;color:#fff;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700">Automation</span>
+      <span style="background:#f1f5f9;border:1px solid #e2e8f0;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:600">Excel 365 Advanced</span>
+      <span style="background:#f1f5f9;border:1px solid #e2e8f0;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:600">LET & LAMBDA</span>
+      <span style="background:#f1f5f9;border:1px solid #e2e8f0;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:600">FILTER & XLOOKUP</span>
+      <span style="background:#f1f5f9;border:1px solid #e2e8f0;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:600">Cross-Platform (Mobile & Desktop)</span>
+    </div>
+    <div class="case-thumb"><img src="../assets/portfolio2_excel_otomatis.png" alt="Excel 365 Automation Dashboard"></div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="case-layout">
+    <article>
+      <div class="case-block" id="konteks">
+        <h2><span>1</span> Latar Belakang Permasalahan</h2>
+        <p>Banyak pelaku usaha mikro dan tim operasional mencatat ratusan transaksi harian secara manual tanpa standarisasi. Data sering kali penuh spasi liar, format tanggal bercampur, kategori inkonsisten, dan saat dibuka di Excel Mobile (HP), formula bawaan sering rusak (*#NAME?* atau *#REF!*) akibat rumus yang tidak kompatibel atau sel yang diisi angka statis tanpa logika audit yang jelas.</p>
+      </div>
+      <div class="case-block" id="data">
+        <h2><span>2</span> Karakteristik Data</h2>
+        <p>Log transaksi mentah dari input kasir dan mutasi rekening: 500+ baris data dengan format nominal bervariasi (teks, simbol mata uang, spasi), tanggal tidak berurutan, serta kategori belanja yang tidak terstandarisasi.</p>
+      </div>
+      <div class="case-block" id="proses">
+        <h2><span>3</span> Solusi Teknis & Arsitektur Formula</h2>
+        <ol>
+          <li><strong>Struktur 3 Lapis (Data-Helper-Summary):</strong> Memisahkan lembar kerja menjadi <em>Raw Data</em> (hanya input), <em>Helper/Calculation</em> (pemrosesan formula), dan <em>Executive Summary</em> (dashboard tampilan), mencegah user menimpa rumus secara tidak sengaja.</li>
+          <li><strong>Rumus Dinamis Modern:</strong> Memanfaatkan <code>LET</code> untuk efisiensi komputasi, <code>LAMBDA</code> untuk kustomisasi kalkulasi berulang, <code>FILTER</code> dan <code>XLOOKUP</code> untuk pencarian dinamis tanpa beban komputasi VLOOKUP konvensional.</li>
+          <li><strong>Audit Lineage Aktif:</strong> Setiap baris data memiliki formula aktif di baris pertama yang siap ditarik ke bawah (replicated across rows) dengan referensi relatif yang bersih, bukan angka statis hasil copy-paste.</li>
+          <li><strong>Optimasi Mobile Ready:</strong> Memastikan penulisan formula bersih dari prefix XML usang serta menyediakan nilai cached agar spreadsheet terbuka instan dan mulus saat diakses pemilik bisnis lewat aplikasi Excel Android maupun iOS.</li>
+        </ol>
+      </div>
+      <div class="case-block" id="insight">
+        <h2><span>4</span> Hasil Kerja</h2>
+        <div class="insight-box">
+          <ul>
+            <li><strong>Efisiensi Waktu:</strong> Waktu rekapitulasi laporan bulanan berkurang dari 2-3 hari kerja menjadi kurang dari 15 menit otomatis.</li>
+            <li><strong>Zero Error Calculation:</strong> Mengeliminasi kesalahan manusia (human error) hingga 100% pada kalkulasi laba-rugi kotor dan arus kas harian.</li>
+            <li><strong>Aksesibilitas Multi-Device:</strong> Pemilik bisnis dapat memantau kesehatan kas langsung dari smartphone tanpa kendala error kompatibilitas.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="case-block" id="dampak">
+        <h2><span>5</span> Implementasi & Layanan Freelance</h2>
+        <p>Studi kasus ini juga merupakan portofolio aktif pada layanan profesional di platform Fastwork (@syarif112), di mana kepuasan klien dijamin melalui garansi revisi, struktur data rapi, dan respons cepat.</p>
+      </div>
+      <div class="case-block" id="tautan">
+        <h2><span>6</span> Tautan Layanan & Contoh</h2>
+        <p style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
+          <a href="https://fastwork.id/user/syarif112" target="_blank" rel="noopener" class="btn btn-primary">Lihat Profil Fastwork &rarr;</a>
+          <a href="../index.html#projects" class="btn btn-ghost">&larr; Kembali ke Proyek</a>
+        </p>
+      </div>
+    </article>
+    <aside>
+      <div class="toc">
+        <h4>Daftar Isi</h4>
+        <a href="#konteks">1. Latar Belakang</a>
+        <a href="#data">2. Karakteristik Data</a>
+        <a href="#proses">3. Arsitektur Formula</a>
+        <a href="#insight">4. Hasil Kerja</a>
+        <a href="#dampak">5. Implementasi</a>
+        <a href="#tautan">6. Tautan</a>
+        <a href="https://fastwork.id/user/syarif112" target="_blank" class="btn btn-primary btn-block" style="margin-top:14px">Profil Fastwork &rarr;</a>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer class="footer" style="margin-top:40px">
+  <div class="container footer-inner">
+    <span>© 2026 Syarif Hidayatullah — Junior Data Analyst.</span>
+    <span><a href="../index.html">Home</a> · <a href="../index.html#projects">Projects</a></span>
+  </div>
+</footer>
+<script>
+document.getElementById('hamburger')?.addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
+</script>
+</body>
+</html>

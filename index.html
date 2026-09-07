@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syarif Hidayatullah — Junior Data Analyst | Excel 365 & SQL Specialist</title>
+<meta name="description" content="Portfolio Syarif Hidayatullah — Junior Data Analyst berlatar Sejarah Peradaban Islam UIN Jakarta. Spesialis Advanced Excel 365, SQL, Python, dan visualisasi data.">
+<meta property="og:title" content="Syarif Hidayatullah — Data Analyst Portfolio">
+<meta property="og:description" content="Mengubah data kompleks menjadi keputusan presisi. Studi kasus analitik dengan SQL, Advanced Excel 365, dan Python.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%236366f1'/><text x='50' y='68' font-size='48' text-anchor='middle' fill='white' font-family='Inter' font-weight='800'>S</text></svg>">
+</head>
+<body>
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="#home"><span class="logo-mark">S</span> Syarif<span class="logo-dot">.</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="assets/CV-Syarif-Data-Analyst.pdf" download class="btn btn-sm btn-ghost">Unduh CV</a>
+      <a href="#contact" class="btn btn-sm btn-primary">Hubungi Saya</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <div class="eyebrow"><span class="dot"></span> Available for full-time & freelance — Tangerang Selatan • Remote</div>
+      <h1>Data Analyst<br><span class="grad">Mengubah data kompleks<br>menjadi keputusan presisi.</span></h1>
+      <p class="lead">Latar humaniora (SPI UIN Syarif Hidayatullah Jakarta), pola pikir analitis. Saya membantu bisnis memahami <strong>mengapa</strong> di balik angka — dengan Advanced Excel 365, kueri SQL relasional, Python, dan storytelling yang mudah dipahami stakeholder non-teknis.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary btn-lg">Lihat Proyek &rarr;</a>
+        <a href="assets/CV-Syarif-Data-Analyst.pdf" download class="btn btn-outline btn-lg">Unduh CV (PDF)</a>
+      </div>
+      <div class="hero-meta">
+        <div class="meta-item"><strong>4</strong><span>Studi kasus pilihan</span></div>
+        <div class="meta-divider"></div>
+        <div class="meta-item"><strong>Excel 365 • SQL • Python</strong><span>Stack utama</span></div>
+        <div class="meta-divider"></div>
+        <div class="meta-item"><strong>Audit Lineage</strong><span>Formula transparan</span></div>
+      </div>
+      <div class="hero-social">
+        <a href="https://github.com/syarifhidaytullah" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+        <a href="https://fastwork.id/user/syarif112" target="_blank" rel="noopener" aria-label="Fastwork">Fastwork</a>
+        <a href="https://instagram.com/syarifhidaytullah_" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+        <a href="https://tiktok.com/@syarifhidaytullah_" target="_blank" rel="noopener" aria-label="TikTok">TikTok</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="card hero-card">
+        <div class="card-head">
+          <span class="card-dots"><i></i><i></i><i></i></span>
+          <span class="card-title">hr_attrition_analysis.sql</span>
+        </div>
+        <pre class="code"><code><span class="c">-- Analisis Lembur vs Rasio Attrition per Departemen</span>
+<span class="k">SELECT</span> 
+  d.department_name,
+  e.overtime,
+  <span class="k">COUNT</span>(e.employee_id) <span class="k">AS</span> total_karyawan,
+  <span class="k">ROUND</span>(<span class="k">AVG</span>(e.monthly_income), <span class="n">2</span>) <span class="k">AS</span> avg_gaji,
+  <span class="k">ROUND</span>(<span class="k">SUM</span>(<span class="k">CASE WHEN</span> e.attrition = <span class="s">'Yes'</span> <span class="k">THEN</span> <span class="n">1</span> <span class="k">ELSE</span> <span class="n">0</span> <span class="k">END</span>) * <span class="n">100.0</span> / <span class="k">COUNT</span>(*), <span class="n">1</span>) <span class="k">AS</span> attrition_rate
+<span class="k">FROM</span> employees e
+<span class="k">JOIN</span> departments d <span class="k">ON</span> e.department_id = d.department_id
+<span class="k">GROUP BY</span> d.department_name, e.overtime
+<span class="k">ORDER BY</span> attrition_rate <span class="k">DESC</span>;
+<span class="c">-- &rarr; OverTime attrition 30.5% vs non-OT 10.4%</span></code></pre>
+        <div class="hero-stats">
+          <div class="h-stat"><span class="h-stat-label">OverTime Attrition</span><span class="h-stat-val down">30.5%</span></div>
+          <div class="h-stat"><span class="h-stat-label">Formula Accuracy</span><span class="h-stat-val up">100% Valid</span></div>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="assets/portfolio2_excel_otomatis.png" alt="Excel 365 Automation Dashboard" loading="lazy">
+        <div class="photo-badge">Syarif Hidayatullah — Junior Data Analyst</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Tentang Saya</span>
+      <h2>Dari Sejarah Peradaban Islam ke Data —<br>Kekuatan Konteks &amp; Narasi.</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-story">
+        <p>Hai, saya <strong>Syarif Hidayatullah</strong> (biasa disapa Rif atau Syarif). Latar akademik saya humaniora dari program studi <strong>Sejarah Peradaban Islam (SPI) UIN Syarif Hidayatullah Jakarta (Lulus 2025)</strong>. Berangkat dari riset sejarah, saya terbiasa melakukan kritik sumber, menyaring informasi dari data yang tidak terstruktur, dan merekonstruksi kausalitas permasalahan yang kompleks.</p>
+        <p>Latar belakang ini adalah <em>diferensiator utama</em> saya di ranah data analytics. Saya tidak hanya mengeksekusi kueri SQL atau merancang formula Excel modern, tetapi juga memahami konteks bisnis di balik data tersebut dan mengomunikasikannya dalam bahasa naratif yang dipahami stakeholder. Di dunia data: <strong>insight tanpa storytelling yang jelas adalah angka yang akan diabaikan</strong>.</p>
+        <div class="approach">
+          <h3>Prinsip Analisis</h3>
+          <ol>
+            <li><strong>Kritik Sumber &amp; Data Lineage</strong> — pemisahan tegas antara data input, kalkulasi helper, dan summary dashboard agar rumus selalu transparan dan dapat diaudit.</li>
+            <li><strong>Formula Modern Tanpa Hardcode</strong> — memanfaatkan Dynamic Arrays Excel 365 (LET, LAMBDA, FILTER, XLOOKUP) yang aktif di baris pertama dan aman diakses lewat mobile.</li>
+            <li><strong>Kueri Efisien &amp; Terstruktur</strong> — penulisan SQL relasional yang bersih (Multi-Table JOINs, Subquery, Conditional Aggregations) yang siap diintegrasikan ke basis data operasional.</li>
+            <li><strong>Rekomendasi Berorientasi Aksi</strong> — setiap analisis harus menjawab pertanyaan: <em>"Jadi, langkah bisnis apa yang harus diputuskan sekarang?"</em></li>
+          </ol>
+        </div>
+      </div>
+      <div class="about-side">
+        <div class="info-card">
+          <h4>Sekilas Profil</h4>
+          <ul class="info-list">
+            <li><span>Domisili</span><strong>Tangerang Selatan • Remote OK</strong></li>
+            <li><span>Pendidikan</span><strong>SPI UIN Jakarta (Lulus 2025)</strong></li>
+            <li><span>Fokus</span><strong>Junior Data Analyst / Excel Specialist</strong></li>
+            <li><span>Stack Utama</span><strong>Excel 365, SQL, Python, Flask</strong></li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h4>Pengalaman &amp; Track Record</h4>
+          <ul class="cert-list">
+            <li>DQLab Excel Hackathon Teammate</li>
+            <li>Freelance Spreadsheet Specialist (Fastwork @syarif112)</li>
+            <li>Founder &amp; Dev BukuLagi (Katalog Toko Buku Bekas Tangsel)</li>
+            <li>SQL Portfolio — IBM HR Analytics (10 Kueri Terstruktur)</li>
+            <li>Google Data Analytics (Professional Track)</li>
+          </ul>
+        </div>
+        <a href="#contact" class="btn btn-primary btn-block">Ajak Diskusi &amp; Kolaborasi &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section section-alt">
+  <div class="container">
+    <div class="section-head row">
+      <div>
+        <span class="kicker">Project Showcase</span>
+        <h2>Studi kasus analitik pilihan —<br>solusi nyata, bukan sekadar teori.</h2>
+        <p class="sub">Setiap proyek berfokus pada masalah riil: Konteks Bisnis &rarr; Pemodelan Data &rarr; Metodologi &rarr; Insight Kunci &rarr; Rekomendasi Aksi.</p>
+      </div>
+      <div class="filter-bar" id="filterBar">
+        <button data-filter="all" class="filter-btn active">Semua</button>
+        <button data-filter="Automation" class="filter-btn">Automation</button>
+        <button data-filter="SQL &amp; Database" class="filter-btn">SQL &amp; Database</button>
+        <button data-filter="Web &amp; Data Pipeline" class="filter-btn">Web &amp; Data Pipeline</button>
+      </div>
+    </div>
+    <div class="project-grid" id="projectGrid">
+      <!-- rendered by JS -->
+    </div>
+    <p class="hint">Filter berdasarkan domain keahlian. Setiap proyek dilengkapi tautan repositori GitHub atau dokumentasi studi kasus terperinci.</p>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Skill &amp; Tools</span>
+      <h2>Tools teknis yang saya gunakan secara aktif.</h2>
+      <p class="sub">Berfokus pada fungsionalitas, akurasi kalkulasi, dan skalabilitas data di dunia kerja nyata.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3><span class="sg-icon">📊</span> Advanced Excel 365</h3>
+        <div class="tags"><span>LET &amp; LAMBDA</span><span>FILTER &amp; SORT</span><span>XLOOKUP</span><span>BYCOL / BYROW</span><span>VSTACK / HSTACK</span></div>
+        <p>Arsitektur Data-Helper-Summary yang transparan, formula aktif yang dapat di-drag tanpa merusak referensi, serta kompatibel dibuka di aplikasi Excel Mobile (Android/iOS).</p>
+      </div>
+      <div class="skill-group">
+        <h3><span class="sg-icon">🗄️</span> SQL &amp; Database</h3>
+        <div class="tags"><span>SQLite</span><span>PostgreSQL (Supabase)</span><span>Multi-Table JOINs</span><span>Subqueries &amp; CASE</span><span>Aggregations (GROUP BY/HAVING)</span></div>
+        <p>Pemodelan skema relasional, filtering data bersyarat, multi-table JOINs, subqueries, serta agregasi bisnis terstruktur (COUNT, SUM, AVG, GROUP BY, HAVING).</p>
+      </div>
+      <div class="skill-group">
+        <h3><span class="sg-icon">🐍</span> Python &amp; Data Pipeline</h3>
+        <div class="tags"><span>Pandas</span><span>NumPy</span><span>Flask</span><span>Streamlit</span><span>Matplotlib / Seaborn</span></div>
+        <p>Data cleaning skala besar, analisis eksploratif (EDA), pembuatan aplikasi web katalog ringan, serta dashboard interaktif.</p>
+      </div>
+      <div class="skill-group">
+        <h3><span class="sg-icon">🚀</span> Platform &amp; Deployment</h3>
+        <div class="tags"><span>Git &amp; GitHub</span><span>Vercel</span><span>Google Sheets API</span><span>Linux / Bash</span><span>Fastwork</span></div>
+        <p>Version control proyek data, deployment aplikasi web data, otomasi spreadsheet via API, navigasi terminal Linux, dan pengerjaan proyek freelance data.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section section-dark">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-text">
+        <span class="kicker kicker-light">Kontak</span>
+        <h2>Punya data yang<br>butuh insight terukur?</h2>
+        <p>Terbuka untuk peluang karir full-time (Junior Data Analyst / Business Analyst) maupun proyek freelance otomasi spreadsheet dan pembersihan data.</p>
+        <ul class="contact-links">
+          <li><span>Lokasi</span><strong>Tangerang Selatan, Banten — Remote OK</strong></li>
+          <li><span>GitHub</span><a href="https://github.com/syarifhidaytullah" target="_blank" rel="noopener">github.com/syarifhidaytullah</a></li>
+          <li><span>Fastwork</span><a href="https://fastwork.id/user/syarif112" target="_blank" rel="noopener">fastwork.id/user/syarif112</a></li>
+          <li><span>Instagram</span><a href="https://instagram.com/syarifhidaytullah_" target="_blank" rel="noopener">@syarifhidaytullah_</a></li>
+          <li><span>TikTok</span><a href="https://tiktok.com/@syarifhidaytullah_" target="_blank" rel="noopener">@syarifhidaytullah_</a></li>
+        </ul>
+      </div>
+      <form class="contact-form" id="contactForm" onsubmit="return false;">
+        <label>Nama<input type="text" name="name" placeholder="Nama Anda / Perusahaan" required></label>
+        <label>Email<input type="email" name="email" placeholder="email@perusahaan.com" required></label>
+        <label>Pesan<textarea name="message" rows="5" placeholder="Ceritakan kebutuhan analisis, peran lowongan, atau proyek data Anda..." required></textarea></label>
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="formBtn">Kirim Pesan &rarr;</button>
+        <p class="form-note" id="formNote">Form siap dihubungkan ke endpoint email atau direct WhatsApp.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span>© 2026 Syarif Hidayatullah — Junior Data Analyst. Dibuat dengan logika data &amp; presisi.</span>
+    <span class="footer-links"><a href="#home">Home</a> · <a href="#projects">Projects</a> · <a href="assets/CV-Syarif-Data-Analyst.pdf" download>CV PDF</a></span>
+  </div>
+</footer>
+
+<script>window.__PROJECTS__ = [
+  {
+    "id": "sql-hr-analytics",
+    "slug": "analisis-kinerja-karyawan-hr",
+    "title": "SQL Portfolio — HR Employee Attrition & Analytics",
+    "oneLiner": "Analisis 1.470 data karyawan dengan kueri SQL relasional (Multi-table JOINs, Subquery, Aggregations) untuk mengungkap pola turnover.",
+    "category": "SQL & Database",
+    "tools": [
+      "SQL (SQLite/PostgreSQL)",
+      "Multi-Table JOINs",
+      "Subqueries & CASE",
+      "Aggregations",
+      "Python",
+      "sqliteonline.com"
+    ],
+    "thumb": "assets/portfolio3_skripsi_dashboard.png",
+    "github": "https://github.com/syarifhidaytullah/sql-portfolio",
+    "demo": "https://sqliteonline.com",
+    "context": "Perusahaan menghadapi tingkat turnover karyawan sebesar 16.1% tanpa pemetaan pola retensi yang jelas antar departemen dan level kepuasan kerja. Dibutuhkan audit data komprehensif menggunakan kueri SQL relasional terstruktur.",
+    "data_source": "IBM HR Analytics Employee Attrition & Performance dataset (1.470 baris, 35 atribut). Struktur relasional 3 tabel: employees (fact), departments, dan job_roles.",
+    "process": [
+      "Perancangan skema DDL relasional dan pemuatan data terstruktur (load_data.py)",
+      "Eksplorasi metrik agregat dasar (COUNT, AVG, MIN, MAX gaji dan tenure)",
+      "Analisis rasio attrition per departemen dengan penggabungan multi-table JOINs",
+      "Korelasi beban kerja lembur terhadap tingkat keluar (OverTime vs Attrition)",
+      "Segmentasi profil risiko keluar menggunakan conditional CASE statements dan subqueries",
+      "Perbandingan kompensasi antar divisi menggunakan agregasi berjenjang (GROUP BY dan HAVING)"
+    ],
+    "insights": [
+      "Karyawan dengan status OverTime memiliki rasio attrition 30.5% (hampir 3x lipat dibanding non-overtime 10.4%)",
+      "Sales Representative mencatat turnover tertinggi (39.8%) dengan rata-rata masa kerja di bawah 3 tahun",
+      "Identifikasi disparitas gaji: 14% karyawan dengan performa tinggi masih menerima kompensasi di bawah rata-rata departemen mereka"
+    ],
+    "impact": "Menyediakan kueri SQL siap audit untuk HR leadership, rekomendasi evaluasi kebijakan lembur, serta penyetaraan kompensasi berbasis performa guna menekan potensi turnover hingga 5-8%.",
+    "color": "#6366f1"
+  },
+  {
+    "id": "excel-otomasi-laporan-keuangan",
+    "slug": "excel-otomasi-laporan-keuangan",
+    "title": "Excel 365 Automation — Pembersihan Data & Laporan Keuangan Dinamis",
+    "oneLiner": "Mengubah 500+ baris data transaksi kotor menjadi dashboard finansial otomatis dengan formula Excel 365 modern.",
+    "category": "Automation",
+    "tools": [
+      "Excel 365 (Advanced)",
+      "LET & LAMBDA",
+      "FILTER & XLOOKUP",
+      "Data Lineage",
+      "Mobile Compatible"
+    ],
+    "thumb": "assets/portfolio2_excel_otomatis.png",
+    "github": "https://fastwork.id/user/syarif112",
+    "demo": "https://fastwork.id/user/syarif112",
+    "context": "Klien UMKM mengelola ratusan baris transaksi harian dengan input tidak konsisten, formula rusak saat dibuka di HP, serta butuh berhari-hari untuk merangkum arus kas bulanan.",
+    "data_source": "Ekspor transaksi penjualan dan operasional (500+ baris). Masalah: format nominal campur, missing values pada kategori, spasi liar, dan formula tidak dinamis.",
+    "process": [
+      "Pembersihan data otomatis (TRIM, CLEAN, parsing angka regex/text manipulation)",
+      "Penerapan arsitektur sheet transparan: Data Input → Helper/Calc → Executive Summary Dashboard",
+      "Implementasi Dynamic Array Formulas (LET, LAMBDA, FILTER, BYCOL, VSTACK) yang dapat di-drag tanpa merusak referensi",
+      "Validasi OpenXML dan cached values agar formula tetap berjalan lancar di Excel Mobile (Android/iOS) tanpa popup corrupt"
+    ],
+    "insights": [
+      "Otomasi formula memangkas waktu rekonsiliasi bulanan dari 3 hari menjadi hitungan menit",
+      "Struktur data terpisah menjamin auditabilitas tanpa risiko sel formula tertimpa oleh staf operasional"
+    ],
+    "impact": "Klien mendapatkan dashboard keuangan real-time yang bisa diupdate mandiri dari laptop maupun smartphone, dengan garansi keakuratan formula 100%.",
+    "color": "#10b981"
+  },
+  {
+    "id": "bukulagi-katalog-toko-buku",
+    "slug": "bukulagi-katalog-toko-buku",
+    "title": "BukuLagi — Katalog & Pipeline Data Toko Buku Bekas Tangsel",
+    "oneLiner": "Platform katalog buku bekas berbasis Flask & PostgreSQL dengan sinkronisasi WhatsApp order untuk pasar Tangerang Selatan.",
+    "category": "Web & Data Pipeline",
+    "tools": [
+      "Python (Flask)",
+      "Supabase (PostgreSQL)",
+      "REST API",
+      "Vercel",
+      "Data Analytics"
+    ],
+    "thumb": "assets/portfolio1_before_after.png",
+    "github": "https://github.com/syarifhidaytullah/bukulagi",
+    "demo": "",
+    "context": "Penjualan buku bekas dan langka di area Tangerang Selatan menghadapi kendala pencatatan inventaris stok fisik dan keterbatasan saluran katalog online yang cepat diakses pelanggan via WhatsApp.",
+    "data_source": "Database katalog inventaris buku (judul, pengarang, penerbit, tahun terbit, kondisi fisik, harga, status ketersediaan) tersimpan di Supabase PostgreSQL.",
+    "process": [
+      "Perancangan skema relasional katalog dan transaksi di Supabase PostgreSQL",
+      "Pengembangan backend ringan menggunakan Flask dengan query database teroptimasi",
+      "Integrasi pipeline WhatsApp order direct link untuk mempermudah checkout pelanggan lokal",
+      "Deployment aplikasi ke Vercel dengan konfigurasi serverless production"
+    ],
+    "insights": [
+      "Kategori buku humaniora, sejarah, dan literatur akademik mencatat perputaran stok (turnover rate) 40% lebih cepat dibanding kategori umum",
+      "Order konversi meningkat signifikan dengan fitur pencarian instan judul dan kondisi buku"
+    ],
+    "impact": "Memfasilitasi digitalisasi katalog toko buku fisik, mempersingkat inquiry pelanggan, serta menyediakan database inventaris yang siap dianalisis untuk tren permintaan buku.",
+    "color": "#0ea5e9"
+  },
+  {
+    "id": "hermes-personal-data-assistant",
+    "slug": "hermes-personal-data-assistant",
+    "title": "Personal Data Assistant: Otomasi Workflow Analis & Telegram Reporting",
+    "oneLiner": "Membangun harness autonomous agent lokal di Linux untuk asistensi riset data, validasi kueri SQL, dan reporting otomatis ke Telegram.",
+    "category": "Automation",
+    "tools": [
+      "Hermes Agent",
+      "Linux (Bash)",
+      "Telegram Bot API",
+      "Python",
+      "Local LLM Gateway"
+    ],
+    "thumb": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
+    "github": "https://github.com/syarifhidaytullah",
+    "demo": "",
+    "context": "Tugas harian analis data sering tersita oleh pekerjaan repetitif seperti drafting kueri rumit, format konversi data mentah, pengecekan sintaks regex, serta pelaporan manual berkala ke smartphone stakeholder. Dibutuhkan harness asisten otonom yang bekerja langsung di lingkungan terminal lokal dengan perlindungan privasi data.",
+    "data_source": "Infrastruktur agent mandiri di lingkungan Linux CLI (Debian/MX Linux), terhubung ke router model bahasa lokal (OpenAI-compatible gateway) dan gateway protokol Telegram.",
+    "process": [
+      "Pemasangan dan konfigurasi Hermes Agent CLI di Linux dengan izin akses terkontrol (tool sandbox)",
+      "Penyusunan arsitektur messaging gateway untuk interaksi remote dua arah via bot Telegram",
+      "Integrasi toolchain analisis: pembacaan struktur CSV/DB lokal, validasi kueri SQL, dan eksekusi skrip pembersihan data",
+      "Penerapan prinsip data-privacy first: koneksi model diarahkan ke gateway privat lokal untuk mencegah kebocoran data bisnis mentah"
+    ],
+    "insights": [
+      "Memangkas waktu siklus eksplorasi data awal (EDA) dan penulisan skrip pembersihan data repetitif hingga 40%",
+      "Pengiriman file laporan (PDF/CSV/Spreadsheet) langsung dari CLI ke Telegram mempermudah stakeholder mengakses data tanpa harus membuka laptop",
+      "Lingkungan lokal menjamin kepatuhan privasi (data governance) tanpa risiko scraping pihak ketiga"
+    ],
+    "impact": "Meningkatkan produktivitas kerja analisis harian secara signifikan melalui otomasi agentic, menjembatani kecepatan kerja terminal Linux dengan kebutuhan reporting dinamis para pengambil keputusan.",
+    "color": "#06b6d4"
+  }
+];</script>
+<script src="js/app.js"></script>
+</body>
+</html>

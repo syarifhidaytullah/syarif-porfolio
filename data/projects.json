@@ -1,0 +1,131 @@
+[
+  {
+    "id": "sql-hr-analytics",
+    "slug": "analisis-kinerja-karyawan-hr",
+    "title": "SQL Portfolio — HR Employee Attrition & Analytics",
+    "oneLiner": "Analisis 1.470 data karyawan dengan kueri SQL relasional (Multi-table JOINs, Subquery, Aggregations) untuk mengungkap pola turnover.",
+    "category": "SQL & Database",
+    "tools": [
+      "SQL (SQLite/PostgreSQL)",
+      "Multi-Table JOINs",
+      "Subqueries & CASE",
+      "Aggregations",
+      "Python",
+      "sqliteonline.com"
+    ],
+    "thumb": "assets/portfolio3_skripsi_dashboard.png",
+    "github": "https://github.com/syarifhidaytullah/sql-portfolio",
+    "demo": "https://sqliteonline.com",
+    "context": "Perusahaan menghadapi tingkat turnover karyawan sebesar 16.1% tanpa pemetaan pola retensi yang jelas antar departemen dan level kepuasan kerja. Dibutuhkan audit data komprehensif menggunakan kueri SQL relasional terstruktur.",
+    "data_source": "IBM HR Analytics Employee Attrition & Performance dataset (1.470 baris, 35 atribut). Struktur relasional 3 tabel: employees (fact), departments, dan job_roles.",
+    "process": [
+      "Perancangan skema DDL relasional dan pemuatan data terstruktur (load_data.py)",
+      "Eksplorasi metrik agregat dasar (COUNT, AVG, MIN, MAX gaji dan tenure)",
+      "Analisis rasio attrition per departemen dengan penggabungan multi-table JOINs",
+      "Korelasi beban kerja lembur terhadap tingkat keluar (OverTime vs Attrition)",
+      "Segmentasi profil risiko keluar menggunakan conditional CASE statements dan subqueries",
+      "Perbandingan kompensasi antar divisi menggunakan agregasi berjenjang (GROUP BY dan HAVING)"
+    ],
+    "insights": [
+      "Karyawan dengan status OverTime memiliki rasio attrition 30.5% (hampir 3x lipat dibanding non-overtime 10.4%)",
+      "Sales Representative mencatat turnover tertinggi (39.8%) dengan rata-rata masa kerja di bawah 3 tahun",
+      "Identifikasi disparitas gaji: 14% karyawan dengan performa tinggi masih menerima kompensasi di bawah rata-rata departemen mereka"
+    ],
+    "impact": "Menyediakan kueri SQL siap audit untuk HR leadership, rekomendasi evaluasi kebijakan lembur, serta penyetaraan kompensasi berbasis performa guna menekan potensi turnover hingga 5-8%.",
+    "color": "#6366f1"
+  },
+  {
+    "id": "excel-otomasi-laporan-keuangan",
+    "slug": "excel-otomasi-laporan-keuangan",
+    "title": "Excel 365 Automation — Pembersihan Data & Laporan Keuangan Dinamis",
+    "oneLiner": "Mengubah 500+ baris data transaksi kotor menjadi dashboard finansial otomatis dengan formula Excel 365 modern.",
+    "category": "Automation",
+    "tools": [
+      "Excel 365 (Advanced)",
+      "LET & LAMBDA",
+      "FILTER & XLOOKUP",
+      "Data Lineage",
+      "Mobile Compatible"
+    ],
+    "thumb": "assets/portfolio2_excel_otomatis.png",
+    "github": "https://fastwork.id/user/syarif112",
+    "demo": "https://fastwork.id/user/syarif112",
+    "context": "Klien UMKM mengelola ratusan baris transaksi harian dengan input tidak konsisten, formula rusak saat dibuka di HP, serta butuh berhari-hari untuk merangkum arus kas bulanan.",
+    "data_source": "Ekspor transaksi penjualan dan operasional (500+ baris). Masalah: format nominal campur, missing values pada kategori, spasi liar, dan formula tidak dinamis.",
+    "process": [
+      "Pembersihan data otomatis (TRIM, CLEAN, parsing angka regex/text manipulation)",
+      "Penerapan arsitektur sheet transparan: Data Input → Helper/Calc → Executive Summary Dashboard",
+      "Implementasi Dynamic Array Formulas (LET, LAMBDA, FILTER, BYCOL, VSTACK) yang dapat di-drag tanpa merusak referensi",
+      "Validasi OpenXML dan cached values agar formula tetap berjalan lancar di Excel Mobile (Android/iOS) tanpa popup corrupt"
+    ],
+    "insights": [
+      "Otomasi formula memangkas waktu rekonsiliasi bulanan dari 3 hari menjadi hitungan menit",
+      "Struktur data terpisah menjamin auditabilitas tanpa risiko sel formula tertimpa oleh staf operasional"
+    ],
+    "impact": "Klien mendapatkan dashboard keuangan real-time yang bisa diupdate mandiri dari laptop maupun smartphone, dengan garansi keakuratan formula 100%.",
+    "color": "#10b981"
+  },
+  {
+    "id": "bukulagi-katalog-toko-buku",
+    "slug": "bukulagi-katalog-toko-buku",
+    "title": "BukuLagi — Katalog & Pipeline Data Toko Buku Bekas Tangsel",
+    "oneLiner": "Platform katalog buku bekas berbasis Flask & PostgreSQL dengan sinkronisasi WhatsApp order untuk pasar Tangerang Selatan.",
+    "category": "Web & Data Pipeline",
+    "tools": [
+      "Python (Flask)",
+      "Supabase (PostgreSQL)",
+      "REST API",
+      "Vercel",
+      "Data Analytics"
+    ],
+    "thumb": "assets/portfolio1_before_after.png",
+    "github": "https://github.com/syarifhidaytullah/bukulagi",
+    "demo": "",
+    "context": "Penjualan buku bekas dan langka di area Tangerang Selatan menghadapi kendala pencatatan inventaris stok fisik dan keterbatasan saluran katalog online yang cepat diakses pelanggan via WhatsApp.",
+    "data_source": "Database katalog inventaris buku (judul, pengarang, penerbit, tahun terbit, kondisi fisik, harga, status ketersediaan) tersimpan di Supabase PostgreSQL.",
+    "process": [
+      "Perancangan skema relasional katalog dan transaksi di Supabase PostgreSQL",
+      "Pengembangan backend ringan menggunakan Flask dengan query database teroptimasi",
+      "Integrasi pipeline WhatsApp order direct link untuk mempermudah checkout pelanggan lokal",
+      "Deployment aplikasi ke Vercel dengan konfigurasi serverless production"
+    ],
+    "insights": [
+      "Kategori buku humaniora, sejarah, dan literatur akademik mencatat perputaran stok (turnover rate) 40% lebih cepat dibanding kategori umum",
+      "Order konversi meningkat signifikan dengan fitur pencarian instan judul dan kondisi buku"
+    ],
+    "impact": "Memfasilitasi digitalisasi katalog toko buku fisik, mempersingkat inquiry pelanggan, serta menyediakan database inventaris yang siap dianalisis untuk tren permintaan buku.",
+    "color": "#0ea5e9"
+  },
+  {
+    "id": "hermes-personal-data-assistant",
+    "slug": "hermes-personal-data-assistant",
+    "title": "Personal Data Assistant: Otomasi Workflow Analis & Telegram Reporting",
+    "oneLiner": "Membangun harness autonomous agent lokal di Linux untuk asistensi riset data, validasi kueri SQL, dan reporting otomatis ke Telegram.",
+    "category": "Automation",
+    "tools": [
+      "Hermes Agent",
+      "Linux (Bash)",
+      "Telegram Bot API",
+      "Python",
+      "Local LLM Gateway"
+    ],
+    "thumb": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
+    "github": "https://github.com/syarifhidaytullah",
+    "demo": "",
+    "context": "Tugas harian analis data sering tersita oleh pekerjaan repetitif seperti drafting kueri rumit, format konversi data mentah, pengecekan sintaks regex, serta pelaporan manual berkala ke smartphone stakeholder. Dibutuhkan harness asisten otonom yang bekerja langsung di lingkungan terminal lokal dengan perlindungan privasi data.",
+    "data_source": "Infrastruktur agent mandiri di lingkungan Linux CLI (Debian/MX Linux), terhubung ke router model bahasa lokal (OpenAI-compatible gateway) dan gateway protokol Telegram.",
+    "process": [
+      "Pemasangan dan konfigurasi Hermes Agent CLI di Linux dengan izin akses terkontrol (tool sandbox)",
+      "Penyusunan arsitektur messaging gateway untuk interaksi remote dua arah via bot Telegram",
+      "Integrasi toolchain analisis: pembacaan struktur CSV/DB lokal, validasi kueri SQL, dan eksekusi skrip pembersihan data",
+      "Penerapan prinsip data-privacy first: koneksi model diarahkan ke gateway privat lokal untuk mencegah kebocoran data bisnis mentah"
+    ],
+    "insights": [
+      "Memangkas waktu siklus eksplorasi data awal (EDA) dan penulisan skrip pembersihan data repetitif hingga 40%",
+      "Pengiriman file laporan (PDF/CSV/Spreadsheet) langsung dari CLI ke Telegram mempermudah stakeholder mengakses data tanpa harus membuka laptop",
+      "Lingkungan lokal menjamin kepatuhan privasi (data governance) tanpa risiko scraping pihak ketiga"
+    ],
+    "impact": "Meningkatkan produktivitas kerja analisis harian secara signifikan melalui otomasi agentic, menjembatani kecepatan kerja terminal Linux dengan kebutuhan reporting dinamis para pengambil keputusan.",
+    "color": "#06b6d4"
+  }
+]

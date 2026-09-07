@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SQL Portfolio — HR Employee Attrition & Analytics | Syarif Hidayatullah</title>
+<meta name="description" content="Analisis 1.470 data karyawan dengan kueri SQL relasional (Multi-table JOINs, Subquery, Aggregations) untuk mengungkap pola turnover.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="../index.html"><span class="logo-mark">S</span> Syarif<span class="logo-dot">.</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="../index.html#home">Home</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#projects" class="active">Projects</a>
+      <a href="../index.html#skills">Skills</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="../assets/CV-Syarif-Data-Analyst.pdf" download class="btn btn-sm btn-ghost">Unduh CV</a>
+      <a href="../index.html#contact" class="btn btn-sm btn-primary">Hubungi Saya</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="case-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> &rsaquo; <a href="../index.html#projects">Projects</a> &rsaquo; SQL Portfolio — HR Employee Attrition</div>
+    <h1>SQL Portfolio — HR Employee Attrition & Analytics</h1>
+    <p style="color:var(--muted);max-width:680px">Analisis mendalam 1.470 data karyawan menggunakan kueri SQL relasional terstruktur (Multi-table JOINs, subquery, dan agregasi bersyarat) untuk mengidentifikasi pemicu turnover.</p>
+    <div class="case-meta">
+      <span style="background:#6366f1;color:#fff;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700">SQL & Database</span>
+      <span style="background:#f1f5f9;border:1px solid #e2e8f0;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:600">SQLite / PostgreSQL</span>
+      <span style="background:#f1f5f9;border:1px solid #e2e8f0;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:600">Multi-Table JOINs</span>
+      <span style="background:#f1f5f9;border:1px solid #e2e8f0;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:600">Subqueries & CASE</span>
+      <span style="background:#f1f5f9;border:1px solid #e2e8f0;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:600">Python</span>
+    </div>
+    <div class="case-thumb"><img src="../assets/portfolio3_skripsi_dashboard.png" alt="SQL Portfolio — HR Analytics"></div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="case-layout">
+    <article>
+      <div class="case-block" id="konteks">
+        <h2><span>1</span> Konteks & Masalah Bisnis</h2>
+        <p>Tingkat turnover (attrition) karyawan yang tidak terkontrol meningkatkan biaya rekrutmen dan onboarding. Manajemen memerlukan audit data berbasis kueri SQL yang transparan dan dapat diaudit secara berkala untuk mengetahui di divisi dan kelompok mana risiko keluar paling tinggi.</p>
+      </div>
+      <div class="case-block" id="data">
+        <h2><span>2</span> Sumber Data & Skema Database</h2>
+        <p>Menggunakan dataset IBM HR Analytics (1.470 data karyawan fiksi, 35 kolom atribut). Data dimodelkan menjadi skema relasional 3 tabel:</p>
+        <ul style="padding-left:20px;color:var(--muted);margin-top:8px">
+          <li><strong>employees</strong> (fact table: data demografi, kompensasi, jam lembur, performa)</li>
+          <li><strong>departments</strong> (lookup: R&D, Sales, HR)</li>
+          <li><strong>job_roles</strong> (lookup: 9 jabatan kerja spesifik)</li>
+        </ul>
+      </div>
+      <div class="case-block" id="proses">
+        <h2><span>3</span> Metodologi & Teknik SQL</h2>
+        <ol>
+          <li><strong>Data Ingestion:</strong> Pipeline script Python (load_data.py) untuk validasi tipe data dan migrasi CSV ke SQLite.</li>
+          <li><strong>Agregasi & Filtering:</strong> Menghitung rasio attrition rate per divisi dan jabatan dengan agregasi bersyarat.</li>
+          <li><strong>Multi-Table JOINs:</strong> Menggabungkan tabel fakta karyawan dengan tabel dimensi departemen dan jabatan untuk visualisasi relasional lengkap.</li>
+          <li><strong>Subquery & CASE:</strong> Mengelompokkan masa kerja (tenure) dan kepuasan kerja ke dalam profil risiko dinamis.</li>
+          <li><strong>Benchmarking Kompensasi:</strong> Menghitung perbandingan gaji karyawan terhadap rata-rata divisi menggunakan subquery dan pengelompokan <code>GROUP BY</code> dan <code>HAVING</code>.</li>
+        </ol>
+      </div>
+      <div class="case-block" id="insight">
+        <h2><span>4</span> Insight Kunci</h2>
+        <div class="insight-box">
+          <ul>
+            <li><strong>Faktor Lembur:</strong> Karyawan dengan status <em>OverTime</em> mencatatkan tingkat keluar 30.5%, hampir 3x lipat dibanding karyawan tanpa lembur (10.4%).</li>
+            <li><strong>Divisi Paling Rentan:</strong> Posisi <em>Sales Representative</em> memiliki rasio attrition tertinggi (39.8%), berkorelasi dengan tingginya beban kerja dan tenure di bawah 3 tahun.</li>
+            <li><strong>Distribusi Kompensasi:</strong> Teridentifikasi disparitas gaji pada 14% karyawan berkinerja baik yang masih menerima gaji di bawah rata-rata standar kompensasi departemen mereka.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="case-block" id="dampak">
+        <h2><span>5</span> Rekomendasi Aksi</h2>
+        <p>Rekomendasi bagi tim People Ops mencakup evaluasi batasan jam lembur terstruktur, peninjauan ulang penjenjangan gaji karyawan berkinerja tinggi, dan jalur retensi khusus untuk Sales Representatives.</p>
+      </div>
+      <div class="case-block" id="tautan">
+        <h2><span>6</span> Tautan & Repositori</h2>
+        <p style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
+          <a href="https://github.com/syarifhidaytullah/sql-portfolio" target="_blank" rel="noopener" class="btn btn-primary">Lihat Repositori GitHub &rarr;</a>
+          <a href="../index.html#projects" class="btn btn-ghost">&larr; Kembali ke Proyek</a>
+        </p>
+      </div>
+    </article>
+    <aside>
+      <div class="toc">
+        <h4>Daftar Isi</h4>
+        <a href="#konteks">1. Konteks Bisnis</a>
+        <a href="#data">2. Sumber Data</a>
+        <a href="#proses">3. Teknik SQL</a>
+        <a href="#insight">4. Insight Kunci</a>
+        <a href="#dampak">5. Rekomendasi</a>
+        <a href="#tautan">6. Tautan</a>
+        <a href="https://github.com/syarifhidaytullah/sql-portfolio" target="_blank" class="btn btn-primary btn-block" style="margin-top:14px">GitHub Repo &rarr;</a>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer class="footer" style="margin-top:40px">
+  <div class="container footer-inner">
+    <span>© 2026 Syarif Hidayatullah — Junior Data Analyst.</span>
+    <span><a href="../index.html">Home</a> · <a href="../index.html#projects">Projects</a></span>
+  </div>
+</footer>
+<script>
+document.getElementById('hamburger')?.addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
+</script>
+</body>
+</html>

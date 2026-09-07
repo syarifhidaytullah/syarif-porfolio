@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal Data Assistant: Otomasi Workflow & Telegram Reporting | Syarif Hidayatullah</title>
+<meta name="description" content="Membangun harness autonomous agent lokal di Linux untuk asistensi riset data, validasi kueri SQL, dan reporting otomatis ke Telegram.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="../index.html"><span class="logo-mark">S</span> Syarif<span class="logo-dot">.</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="../index.html#home">Home</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#projects" class="active">Projects</a>
+      <a href="../index.html#skills">Skills</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="../assets/CV-Syarif-Data-Analyst.pdf" download class="btn btn-sm btn-ghost">Unduh CV</a>
+      <a href="../index.html#contact" class="btn btn-sm btn-primary">Hubungi Saya</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="case-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> &rsaquo; <a href="../index.html#projects">Projects</a> &rsaquo; Personal Data Assistant</div>
+    <h1>Personal Data Assistant: Workflow Automation & Telegram Reporting</h1>
+    <p style="color:var(--muted);max-width:680px">Implementasi harness autonomous agent berbasis Linux terminal untuk akselerasi riset data, validasi kueri kueri analitik, dan pengiriman laporan otomatis ke Telegram.</p>
+    <div class="case-meta">
+      <span style="background:#06b6d4;color:#fff;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700">Automation</span>
+      <span style="background:#f1f5f9;border:1px solid #e2e8f0;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:600">Hermes Agent CLI</span>
+      <span style="background:#f1f5f9;border:1px solid #e2e8f0;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:600">Linux Environment (Bash)</span>
+      <span style="background:#f1f5f9;border:1px solid #e2e8f0;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:600">Telegram Bot Gateway</span>
+      <span style="background:#f1f5f9;border:1px solid #e2e8f0;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:600">Local LLM Router</span>
+      <span style="background:#f1f5f9;border:1px solid #e2e8f0;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:600">Python</span>
+    </div>
+    <div class="case-thumb"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80" alt="Autonomous Agent Data Workflow Automation"></div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="case-layout">
+    <article>
+      <div class="case-block" id="konteks">
+        <h2><span>1</span> Latar Belakang Masalah</h2>
+        <p>Aktivitas sehari-hari seorang data analyst sering kali terbebani oleh pekerjaan repetitif non-analitik: mengonversi berkas mentah, memformat tabel, memvalidasi sintaks kueri database yang panjang, dan mengirimkan file laporan secara manual ke chat manajer atau klien. Di sisi lain, menggunakan layanan AI publik di browser berisiko membocorkan kerahasiaan data internal perusahaan. Diperlukan asisten terotomasi yang beroperasi langsung di dalam lingkungan Linux lokal dengan standar keamanan data yang ketat.</p>
+      </div>
+      <div class="case-block" id="data">
+        <h2><span>2</span> Arsitektur Sistem & Komponen</h2>
+        <p>Sistem dibangun di atas lingkungan sistem operasi Linux dengan integrasi multi-komponen:</p>
+        <ul style="padding-left:20px;color:var(--muted);margin-top:8px">
+          <li><strong>Agent Core:</strong> Hermes Agent yang berjalan di CLI lokal dengan kemampuan tool-calling native (pembacaan file, regex, shell scripting).</li>
+          <li><strong>Messaging Gateway:</strong> Layanan daemon gateway yang menghubungkan terminal Linux dengan Telegram Bot API secara persisten.</li>
+          <li><strong>Private Local Routing:</strong> Router model bahasa lokal (OpenAI-compatible) untuk memastikan data kueri dan file analisis tetap berada di dalam infrastruktur lokal.</li>
+        </ul>
+      </div>
+      <div class="case-block" id="proses">
+        <h2><span>3</span> Alur Kerja & Otomasi</h2>
+        <ol>
+          <li><strong>Autonomous CLI Execution:</strong> Agent mampu membaca dataset lokal (CSV, SQLite), melakukan inspeksi tipe data, serta menguji validitas kueri SQL sebelum dijalankan ke database produksi.</li>
+          <li><strong>Two-Way Messaging:</strong> Analis dapat memicu automasi pembersihan data atau meminta ringkasan angka cukup dengan mengirimkan pesan singkat ke Telegram saat sedang tidak di depan laptop.</li>
+          <li><strong>Mobile File Delivery:</strong> Laporan dalam bentuk PDF, grafik, atau ringkasan spreadsheet langsung dikirimkan secara terenkripsi ke akun Telegram stakeholder tanpa proses upload manual.</li>
+          <li><strong>Data Governance:</strong> Seluruh pemrosesan mematuhi aturan privasi data dengan pembatasan hak akses tool di lingkungan terminal.</li>
+        </ol>
+      </div>
+      <div class="case-block" id="insight">
+        <h2><span>4</span> Dampak Efisiensi Kerja</h2>
+        <div class="insight-box">
+          <ul>
+            <li><strong>Efisiensi Waktu:</strong> Mempercepat tahapan persiapan data awal (Exploratory Data Analysis) dan pembuatan query template hingga 40%.</li>
+            <li><strong>Pelaporan Instan:</strong> Klien dan stakeholder bisnis menerima ringkasan metrik harian langsung di ponsel via Telegram secara konsisten.</li>
+            <li><strong>Zero Data Leakage:</strong> Mengurangi ketergantungan pada SaaS pihak ketiga dan menjaga data mentah tetap aman di mesin lokal.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="case-block" id="dampak">
+        <h2><span>5</span> Nilai Tambah bagi Organisasi</h2>
+        <p>Membuktikan kemampuan adaptasi terhadap teknologi agen otonom generasi terbaru (agentic AI), menggabungkan kapabilitas analisis data tradisional dengan otomasi tingkat lanjut di lingkungan sistem Linux.</p>
+      </div>
+      <div class="case-block" id="tautan">
+        <h2><span>6</span> Tautan & Repositori</h2>
+        <p style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
+          <a href="https://github.com/syarifhidaytullah" target="_blank" rel="noopener" class="btn btn-primary">Lihat Profil GitHub &rarr;</a>
+          <a href="../index.html#projects" class="btn btn-ghost">&larr; Kembali ke Proyek</a>
+        </p>
+      </div>
+    </article>
+    <aside>
+      <div class="toc">
+        <h4>Daftar Isi</h4>
+        <a href="#konteks">1. Latar Belakang</a>
+        <a href="#data">2. Arsitektur Sistem</a>
+        <a href="#proses">3. Alur Kerja Otomasi</a>
+        <a href="#insight">4. Dampak Efisiensi</a>
+        <a href="#dampak">5. Nilai Tambah</a>
+        <a href="#tautan">6. Tautan</a>
+        <a href="https://github.com/syarifhidaytullah" target="_blank" class="btn btn-primary btn-block" style="margin-top:14px">GitHub Profil &rarr;</a>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer class="footer" style="margin-top:40px">
+  <div class="container footer-inner">
+    <span>© 2026 Syarif Hidayatullah — Junior Data Analyst.</span>
+    <span><a href="../index.html">Home</a> · <a href="../index.html#projects">Projects</a></span>
+  </div>
+</footer>
+<script>
+document.getElementById('hamburger')?.addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
+</script>
+</body>
+</html>

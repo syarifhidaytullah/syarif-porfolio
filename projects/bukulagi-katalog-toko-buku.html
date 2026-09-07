@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BukuLagi — Katalog & Pipeline Data Toko Buku Bekas Tangsel | Syarif Hidayatullah</title>
+<meta name="description" content="Platform katalog toko buku bekas berbasis Flask & PostgreSQL dengan sinkronisasi WhatsApp order untuk pasar Tangerang Selatan.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="../index.html"><span class="logo-mark">S</span> Syarif<span class="logo-dot">.</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="../index.html#home">Home</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#projects" class="active">Projects</a>
+      <a href="../index.html#skills">Skills</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="../assets/CV-Syarif-Data-Analyst.pdf" download class="btn btn-sm btn-ghost">Unduh CV</a>
+      <a href="../index.html#contact" class="btn btn-sm btn-primary">Hubungi Saya</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="case-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a> &rsaquo; <a href="../index.html#projects">Projects</a> &rsaquo; BukuLagi Tangsel</div>
+    <h1>BukuLagi — Katalog & Pipeline Data Toko Buku Bekas</h1>
+    <p style="color:var(--muted);max-width:680px">Aplikasi web katalog inventaris dan integrasi pemesanan WhatsApp untuk toko buku bekas di Tangerang Selatan, dengan stack Python Flask, Supabase PostgreSQL, dan Vercel.</p>
+    <div class="case-meta">
+      <span style="background:#0ea5e9;color:#fff;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700">Web & Data Pipeline</span>
+      <span style="background:#f1f5f9;border:1px solid #e2e8f0;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:600">Python Flask</span>
+      <span style="background:#f1f5f9;border:1px solid #e2e8f0;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:600">PostgreSQL (Supabase)</span>
+      <span style="background:#f1f5f9;border:1px solid #e2e8f0;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:600">Vercel Deployment</span>
+      <span style="background:#f1f5f9;border:1px solid #e2e8f0;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:600">WhatsApp Commerce</span>
+    </div>
+    <div class="case-thumb"><img src="../assets/portfolio1_before_after.png" alt="BukuLagi Katalog Toko Buku Tangsel"></div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="case-layout">
+    <article>
+      <div class="case-block" id="konteks">
+        <h2><span>1</span> Masalah & Konteks Lapangan</h2>
+        <p>Pasar buku bekas dan buku langka di kawasan Tangerang Selatan (dekat kawasan kampus) memiliki perputaran koleksi yang unik. Pembeli sering mencari judul spesifik bidang sejarah, filsafat, atau sastra yang sulit ditemukan. Toko fisik kesulitan mendokumentasikan ketersediaan stok fisik dan sering kehilangan potensi penjualan karena lambatnya merespons ketersediaan barang.</p>
+      </div>
+      <div class="case-block" id="data">
+        <h2><span>2</span> Struktur Data & Database</h2>
+        <p>Database relasional di Supabase PostgreSQL dirancang untuk mencatat:</p>
+        <ul style="padding-left:20px;color:var(--muted);margin-top:8px">
+          <li><strong>Metadata Buku:</strong> Judul, pengarang, penerbit, tahun terbit, kategori keilmuan, dan ISBN/kondisi fisik.</li>
+          <li><strong>Status Inventaris:</strong> Stok aktif, harga beli, harga jual, dan margin profit.</li>
+          <li><strong>Log Interaksi Order:</strong> Pelacakan klik judul menuju WhatsApp checkout untuk menganalisis konversi minat baca.</li>
+        </ul>
+      </div>
+      <div class="case-block" id="proses">
+        <h2><span>3</span> Pengembangan & Integrasi Pipeline</h2>
+        <ol>
+          <li><strong>Backend Flask:</strong> Menangani query pencarian instan (fuzzy search) berdasarkan kata kunci judul maupun penulis.</li>
+          <li><strong>Database Managed di Supabase:</strong> Memanfaatkan PostgreSQL untuk penyimpanan yang aman, cepat, dan mudah dihubungkan via ORM/konektor Python.</li>
+          <li><strong>Direct WhatsApp Automation:</strong> Menghasilkan format pesan pesanan terstruktur (judul, varian kondisi, estimasi ongkir lokal Tangsel) langsung ke nomor penjual dalam 1 kali klik.</li>
+          <li><strong>Serverless Hosting:</strong> Di-deploy di infrastruktur Vercel untuk menjamin uptime tinggi dan waktu muat halaman di bawah 1.5 detik.</li>
+        </ol>
+      </div>
+      <div class="case-block" id="insight">
+        <h2><span>4</span> Insight Penjualan</h2>
+        <div class="insight-box">
+          <ul>
+            <li><strong>Kategori Paling Diminati:</strong> Buku rujukan sejarah peradaban, pemikiran sosial, dan literatur akademik memiliki perputaran inventaris 40% lebih cepat dibanding kategori fiksi umum.</li>
+            <li><strong>Konversi Tinggi:</strong> Transparansi foto kondisi fisik dan deskripsi minus buku menurunkan rasio retur/pembatalan hingga mendekati 0%.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="case-block" id="dampak">
+        <h2><span>5</span> Dampak Operasional</h2>
+        <p>Digitalisasi katalog BukuLagi memangkas waktu tanya-jawab stok manual penjual hingga 70% dan memperluas jangkauan pembaca lintas Jabodetabek.</p>
+      </div>
+      <div class="case-block" id="tautan">
+        <h2><span>6</span> Repositori & Tautan</h2>
+        <p style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
+          <a href="https://github.com/syarifhidaytullah/bukulagi" target="_blank" rel="noopener" class="btn btn-primary">Lihat Repo di GitHub &rarr;</a>
+          <a href="../index.html#projects" class="btn btn-ghost">&larr; Kembali ke Proyek</a>
+        </p>
+      </div>
+    </article>
+    <aside>
+      <div class="toc">
+        <h4>Daftar Isi</h4>
+        <a href="#konteks">1. Konteks Lapangan</a>
+        <a href="#data">2. Struktur Data</a>
+        <a href="#proses">3. Integrasi Pipeline</a>
+        <a href="#insight">4. Insight Penjualan</a>
+        <a href="#dampak">5. Dampak Operasional</a>
+        <a href="#tautan">6. Tautan</a>
+        <a href="https://github.com/syarifhidaytullah/bukulagi" target="_blank" class="btn btn-primary btn-block" style="margin-top:14px">GitHub Repo &rarr;</a>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer class="footer" style="margin-top:40px">
+  <div class="container footer-inner">
+    <span>© 2026 Syarif Hidayatullah — Junior Data Analyst.</span>
+    <span><a href="../index.html">Home</a> · <a href="../index.html#projects">Projects</a></span>
+  </div>
+</footer>
+<script>
+document.getElementById('hamburger')?.addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
+</script>
+</body>
+</html>
