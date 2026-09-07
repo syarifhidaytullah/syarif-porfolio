@@ -1,6 +1,6 @@
 async function loadProjects(){
   try{
-    const res = await fetch('data/projects.json');
+    const res = await fetch('data/projects.json?v=' + Date.now());
     if(!res.ok) throw new Error('fetch fail');
     return await res.json();
   }catch(e){
@@ -61,20 +61,22 @@ document.addEventListener('DOMContentLoaded', async ()=>{
     });
   },{rootMargin:'-50% 0px -50% 0px',threshold:0});
   sections.forEach(s=>obs.observe(s));
-  // contact form -> mailto
+  // contact form -> WhatsApp
   const form = document.getElementById('contactForm');
   if(form){
     form.addEventListener('submit', (e)=>{
       e.preventDefault();
       const fd = new FormData(form);
-      const name = fd.get('name'), email=fd.get('email'), msg=fd.get('message');
-      const subject = encodeURIComponent(`Portfolio inquiry dari ${name}`);
-      const body = encodeURIComponent(`Nama: ${name}\nEmail: ${email}\n\nPesan:\n${msg}`);
-      window.location.href = `mailto:syarif.hidayatullah.analyst@gmail.com?subject=${subject}&body=${body}`;
+      const name = fd.get('name') || '';
+      const email = fd.get('email') || '';
+      const msg = fd.get('message') || '';
+      const text = encodeURIComponent(`Halo Syarif, saya ${name} (${email}).\n\n${msg}`);
+      const waUrl = `https://wa.me/6285240118570?text=${text}`;
+      window.open(waUrl, '_blank');
       const note = document.getElementById('formNote');
-      if(note) note.textContent = 'Membuka email client... Jika tidak terbuka, hubungi via GitHub atau Fastwork.';
+      if(note) note.textContent = 'Membuka WhatsApp ke +62 852-4011-8570...';
       const btn = document.getElementById('formBtn');
-      if(btn){ btn.textContent='✓ Siap kirim via email'; setTimeout(()=>btn.textContent='Kirim Pesan →',2500);}
+      if(btn){ btn.textContent='✓ Terhubung ke WhatsApp'; setTimeout(()=>btn.textContent='Kirim Pesan via WhatsApp →',3000);}
     });
   }
 });
